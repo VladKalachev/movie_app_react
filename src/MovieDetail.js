@@ -31,14 +31,13 @@ class MovieDetail extends Component {
 
   render() {
     const { movies } = this.state;
-
     return (
       <div className="poster">
-        <MovieWrapper backdrop={`${BACKPOSTER_PATH}${movies.backdrop_path}`}>
+        <MovieWrapper backdrop={movies.backdrop_path ? `${BACKPOSTER_PATH}${movies.backdrop_path}`: null}>
           <MovieInfo>
-            <Overdrive id={movies.id}>
+            <Overdrive id={`/${movies.id}`}>
               <Poster
-                src={`${POSTER_PATH}${movies.poster_path}`}
+                src={movies.poster_path ?`${POSTER_PATH}${movies.poster_path}`: null}
                 alt={movies.title}
               />
             </Overdrive>
